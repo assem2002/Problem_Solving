@@ -2640,5 +2640,60 @@
 #     print(indexstart+1,indexend+1)
 # else:
 #     print("no")
+################### 415 (Div. 2) B. Summer sell-off ######################## 
+# n,f = map(int,input().split())
+# arr = []
+# for i in range(n):
+#     p,c = map(int,input().split())
+#     day = [c,p][p<=c],[c,2*p][2*p<=c]
+#     arr.append(day)
+# sum = 0
+# if f == 0:
+#     for m in arr[f:]:
+#         sum+=m[0]
+# else:
+#     arr.sort(reverse=True,key=lambda x:x[1]-x[0])
+#     for m in arr[0:f]:
+#         sum+=m[1]
+#     for m in arr[f:]:
+#         sum+=m[0]
+# print(sum)
+###################################### B. Colorful Field  Codeforces Beta Round 71 ##############################################
+# def binarysearch(search,k,blocked):
+#     l=0
+#     h= k+1
+#     while h-l !=1:
+#         mid = (h+l)//2
+#         if blocked[mid] ==search:
+#             return (mid,1)
+#         elif blocked[mid]> search:
+#             h=mid
+#         elif blocked[mid]< search:
+#             l=mid
+#     if blocked[l] == search and l !=0:
+#         return (l,1)
+#     return(l,0)
+       
+# n,m,k,t =map(int,input().split())
+# blocked = [0]
+# for i in range(k):
+#     x,y=map(int,input().split())
+#     blocked.append(((x-1)*m)+y-1)
+# blocked.sort()
+# blocked.append(float('inf'))
+# # print(blocked)
+# veg = ["Carrots","Kiwis","Grapes"]
+# for query in range(t):
+#     i,j=map(int,input().split())
+#     search = ((i-1)*m)+j-1
+#     ind = binarysearch(search,k,blocked)
+#     # print(search)
+#     # print(ind)
+#     if ind[1]:print("Waste") 
+#     else:
+#         summer = (len(blocked[0:ind[0]+1])-1)%3
+#         # print(summer)
+#         ind = ind[0]+1
+#         print(veg[search%3 - summer])
 
 

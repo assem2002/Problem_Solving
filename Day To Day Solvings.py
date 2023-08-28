@@ -2695,5 +2695,61 @@
 #         # print(summer)
 #         ind = ind[0]+1
 #         print(veg[search%3 - summer])
+########################### B. Keyboard Codeforces Beta Round 73 (Div. 2 Only) ######################################
+n,m,x = map(int,input().split())
+matrix  = [m*[0] for _ in range(n)]
+verfied = set()
+s_positions = []
+letters = []
+for i in range(n):
+    row = input()
+    for j in range(m):
+        if row[j] == "S":
+            s_positions.append((i,j))
+        else:
+            letters.append(row[j])
+        matrix[i][j] = row [j] 
+input()
+t = input()
+if len(s_positions) == 0 and  t != t.lower():
+    print(-1)
+    exit()
+for i in range(n):
+    for j in range(m):
+        if matrix[i][j] == "S":
+            continue
+        else:
+            take_it = 1 
+            for s in s_positions:
+                if ((((s[0]-i)**2)+((s[1]-j)**2))**0.5) <=x:
+                    verfied.add(matrix[i][j])
+                    take_it = 0
+                    break
+# print(matrix)
+# print("verfied:",verfied)
+letters = {*letters} 
+# print("letters:",letters)
+sum = 0
+for letter in t:
+    if letter.lower() not in letters:
+        print(-1)
+        exit()
+    if letter !=letter.lower() and letter.lower() not in verfied:
+        sum+=1
+print("sum:",sum)
+##################### B. Mahmoud and a Triangle Codeforces Round 396 (Div. 2) ##############################
+# n  = int(input())
+# arr = list(map(int,input().split()))
+# arr.sort()
+# for i in range(n-2):
+#     if arr[i]+arr[i+1]<=arr[i+2]:
+#         continue
+#     else:
+#         print("YES")
+#         exit()
+# print("NO")
+
+
+
 
 

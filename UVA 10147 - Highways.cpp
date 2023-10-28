@@ -54,18 +54,17 @@ struct disJointSet{
             return 0 ;
         else if (rankk[parent1]>rankk[parent2]){
             parent[parent2] = parent1;
-            rankk[parent1]++;
             return 1 ;
         }
         else if (rankk[parent1]<rankk[parent2]){
 
             parent[parent1] = parent2;
-            rankk[parent2]++;
             return 1;
         }
         else{
 
             parent[parent1] = parent2;
+            rankk[parent2]++;
             return 1;
         }
 

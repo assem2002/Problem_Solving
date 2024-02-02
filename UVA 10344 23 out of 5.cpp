@@ -80,7 +80,7 @@ int main(){
         (foundFlag)?cout<<"Possible\n":cout<<"Impossible\n";
     }
     return 0;
-
+  
 
 }
 

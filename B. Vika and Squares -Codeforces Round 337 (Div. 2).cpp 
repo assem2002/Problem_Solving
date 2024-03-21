@@ -1,0 +1,89 @@
+//    std::setvbuf(stdout, nullptr, _IOFBF, BUFSIZ);   //(will neglect the c's stdio.h property of doing inline flushing with every line of code)
+//std::ios_base::sync_with_stdio(false);   // (removes the interoperability that happens between C's stdio.h and iostream )
+
+#include <iostream>
+//#include<numeric>
+//#include<vector>
+//#include<cmath>
+//#include<stack>
+//#include <iomanip>
+//#include <vector>
+#include<bits/stdc++.h>
+//#include <bitset>
+////#include<iomanip>
+//#include <algorithm>
+//#include<queue>
+////#include<deque>
+////#include<numeric>
+//#include<set>
+//#include<unordered_set>
+//#include<map>
+////#include<fstream>
+//#include<sstream>
+////#include <thread>
+////#include <chrono>
+//#include<cstring>
+//#include<string>
+//#include <unordered_map>
+////#include <thread>
+////#include<limits>+++
+
+using namespace std;
+
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    int mini=1000000001;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        if(arr[i]<mini) mini=arr[i];
+    }
+    int largerzone=0;
+    int largerzone_temp=0;
+    int index_canidate=0,index_actual=0;
+    bool breaker =false;
+    bool found_once =false;
+    for(int i=0;i<n;i++){
+            
+        if(arr[i] == mini){
+            found_once=true;
+            if (largerzone_temp>=largerzone){
+                largerzone = largerzone_temp;
+                index_actual = index_canidate;
+            }
+                index_canidate=i+1;
+                largerzone_temp =0;
+            if(i==n-1&& !breaker){
+                index_canidate=0;
+                i=0;
+                breaker=true;
+            }
+            if(breaker)break;
+        }
+        else if(found_once){
+            largerzone_temp++;
+        }
+        
+    
+    }
+    if (largerzone_temp>=largerzone){
+        largerzone = largerzone_temp;
+        index_actual = index_canidate;
+    }
+    long long res = (long long)mini*(long long) n;
+    while(arr[index_actual]!=mini){
+        res++;
+        index_actual++;
+        index_actual%=n;
+    }
+    cout<<res;
+
+
+
+
+
+}
+
+
